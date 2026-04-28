@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Salim Hossain | Portfolio</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    header {
+        background: #2196F3;
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+        animation: fadeDown 1s ease;
+    }
+
+    header h1 {
+        font-size: 32px;
+        animation: zoomIn 1s ease;
+    }
+
+    header p {
+        margin-top: 5px;
+        opacity: 0.9;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    /* CARD ANIMATION BASE */
+    .card {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 14px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s ease;
+    }
+
+    .card.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .card:hover {
+        transform: translateY(-5px) scale(1.01);
+        transition: 0.3s;
+    }
+
+    h2 {
+        color: #2196F3;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        padding-left: 18px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    .profile {
+        text-align: center;
+    }
+
+    .profile img {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 3px solid #2196F3;
+        object-fit: cover;
+        margin-bottom: 10px;
+        animation: pop 1s ease;
+    }
+
+    .social a, .apps a {
+        display: block;
+        margin: 8px 0;
+        color: #2196F3;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .social a:hover, .apps a:hover {
+        transform: translateX(5px);
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 13px;
+        color: #666;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 15px;
+        background: #2196F3;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        background: #1976D2;
+    }
+    .app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.app-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.app-card:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+.slider {
+    position: relative;
+    height: 220px;  /* একটু বড় করলে ভালো দেখাবে */
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;   /* 🔥 main fix */
+    object-position: center; /* center align */
+    background: #000; /* optional (black bg for empty space) */
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #2196F3;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+.download-btn:hover {
+    background: #1976D2;
+    transform: scale(1.05);
+}
+
+/* Download animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(33,150,243,0.5); }
+    70% { box-shadow: 0 0 0 10px rgba(33,150,243,0); }
+    100% { box-shadow: 0 0 0 0 rgba(33,150,243,0); }
+}
+
+    /* ANIMATIONS */
+    @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pop {
+        from { transform: scale(0); }
+        to { transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Md. Salim Hossain</h1>
+    <p>Android & Web Developer | UI Designer</p>
+</header>
+
+<div class="container">
+
+    <div class="card profile">
+        <img src="salim.jpg">
+        <h2>About Me</h2>
+        <p>I am an Android & Web developer. I build modern, fast and clean UI applications.</p>
+    </div>
+
+    <div class="card">
+        <h2>✨ Skills</h2>
+        <ul>
+            <li>Android Apps (Flutter/Kotlin/Java/Android Studio/AIDE)</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>WebView Apps</li>
+            <li>UI/UX Design</li>
+        </ul>
+    </div>
+
+    <div class="card">
+    <h2>📦 My Apps</h2>
+
+    <div class="app-grid">
+
+        <!-- APP 1 -->
+<div class="app-card">
+            <div class="slider">
+                <img src="prayer1.jpg" class="slide active">
+                <img src="prayer2.jpg" class="slide">
+                <img src="prayer3.jpg" class="slide">
+                <img src="prayer4.jpg" class="slide">
+                
+            </div>
+
+            <h3>Prayer App</h3>
+
+            <a href="https://github.com/Salimtech353/Prayer/releases/download/v1.0.7/prayer_v1.0.7.apk" class="download-btn">
+                ⬇ Download
+            </a>
+        </div>
+        
+
+        <!-- APP 2 -->
+        
+        <div class="app-card">
+            <div class="slider">
+                <img src="jobs1.jpg" class="slide active">
+                <img src="jobs2.jpg" class="slide">
+                <img src="jobs3.jpg" class="slide">
+                <img src="jobs4.jpg" class="slide">
+            </div>
+
+            <h3>JobsBD App</h3>
+
+            <a href="https://github.com/Salimbd71/JobsBD/releases/download/v1.0.2/jobsbd-v1.0.2.apk" class="download-btn">
+                ⬇ Download
+            </a>
+        </div>
+
+        
+
+        <!-- APP 3 -->
+        <div class="app-card">
+            <div class="slider">
+                <img src="tv1.jpg" class="slide active">
+                <img src="tv2.jpg" class="slide">
+                <img src="tv3.jpg" class="slide">
+                <img src="tv4.jpg" class="slide">
+            </div>
+
+            <h3>LiveTV71</h3>
+
+            <a href="https://github.com/Salimtech353/LiveTV71/releases/download/v1.0.2/livetv71_v1.0.2.apk" class="download-btn">
+                ⬇ Download
+            </a>
+        </div>
+
+        <!-- APP 4 -->
+        <div class="app-card">
+            <div class="slider">
+                <img src="azura1.jpg" class="slide active">
+                <img src="azura2.jpg" class="slide">
+                <img src="azura3.jpg" class="slide">
+                <img src="azura4.jpg" class="slide">
+            </div>
+
+            <h3>Azura SunPharma</h3>
+
+            <a href="https://github.com/Salimbd71/azurasunpharma/releases/download/v2.0.2/azura-sunpharma-v2.0.2.apk" class="download-btn">
+                ⬇ Download
+            </a>
+        </div>
+
+    </div>
+</div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>📞 Contact</h2>
+            <p>01737462871</p>
+            <p>salimbd.ga@gmail.com</p>
+        </div>
+
+        <div class="card social">
+            <h2>🌐 Social</h2>
+            <li>📱 <a href="tel:+8801737462871">01737462871</a></li>
+            <li>✉️ <a href="mailto:salimbd.ga@gmail.com">salimbd.ga@gmail.com</a></li>
+            <li>📘 <a href="https://www.facebook.com/salim.naogaon">Facebook</a></li>
+            <li>▶️ <a href="https://www.youtube.com/@TechZone_71">YouTube</a></li>
+            <li>📸 <a href="https://www.instagram.com/salim.naogaon">Instagram</a></li>
+            <li>💼 <a href="https://www.linkedin.com/in/salimnaogaon">LinkedIn</a></li>
+            <li>🌐 <a href="https://raw.githack.com/Salimtech353/portfolio/main/index.html">Website</a></li>
+        </div>
+
+    </div>
+
+    <div class="card">
+        <h2>🎯 Goal</h2>
+        <p>To build simple, fast and useful apps for users.</p>
+        
+    </div>
+
+</div>
+
+<footer>© 2026 Md. Salim Hossain</footer>
+
+<script>
+    // Framer-like scroll animation
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+<script>
+    // Auto slideshow
+    const sliders = document.querySelectorAll('.slider');
+
+    sliders.forEach(slider => {
+        let slides = slider.querySelectorAll('.slide');
+        let index = 0;
+
+        setInterval(() => {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }, 2500);
+    });
+</script>
+
+</body>
+</html>
