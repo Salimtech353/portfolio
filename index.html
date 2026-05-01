@@ -167,15 +167,23 @@
     height: 180px;
     overflow: hidden;
     border-radius: 10px;
+    background: transparent;
+
+    display: flex;
+    align-items: center;     /* 🔥 vertical center */
+    justify-content: center; /* 🔥 horizontal center */
 }
 
 .slide {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+
+    object-fit: contain;      /* 🔥 full image show */
+    object-position: center;  /* 🔥 exact center */
+
     opacity: 0;
-    transition: 0.8s;
+    transition: opacity 0.6s ease;
 }
 
 .slide.active {
