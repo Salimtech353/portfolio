@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Salim Hossain | Creative Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --accent: #7c3aed;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            padding: 80px 20px;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .hero-badge {
+            background: rgba(37, 99, 235, 0.1);
+            color: #60a5fa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1100px;
+            margin: -40px auto 0;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* --- APP GRID & SLIDER --- */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .slider-container {
+            position: relative;
+            height: 250px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: all 0.8s ease;
+        }
+
+        .slide.active {
+            opacity: 0.7;
+            transform: scale(1);
+        }
+
+        .app-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .app-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        /* --- SKILLS PILLS --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 14px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s all ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 60px 15px; }
+            .glass-card { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <span class="hero-badge">Available for Projects</span>
+    <h1>Md. Salim Hossain</h1>
+    <p style="color: var(--text-dim); font-size: 1.2rem;">Building the future of Android & Web Experiences</p>
+</header>
+
+<div class="container">
+    
+    <div class="glass-card reveal profile">
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <img src="salim.jpg" style="width: 100px; height: 100px; border-radius: 20px; object-fit: cover; border: 2px solid var(--primary);">
+            <div style="flex: 1;">
+                <h2 style="margin-bottom: 5px;">Creative Developer</h2>
+                <p style="color: var(--text-dim);">Specializing in high-performance Flutter apps and modern web interfaces. I turn complex problems into elegant, user-friendly solutions.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card reveal">
+        <h2 style="margin-bottom: 20px; font-size: 1.5rem;">🚀 Technical Stack</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Flutter / Dart</span>
+            <span class="skill-tag">Android Studio</span>
+            <span class="skill-tag">Kotlin / Java</span>
+            <span class="skill-tag">Modern JavaScript</span>
+            <span class="skill-tag">UI/UX Prototyping</span>
+            <span class="skill-tag">Firebase Integration</span>
+            <span class="skill-tag">RESTful APIs</span>
+        </div>
+    </div>
+
+    <div class="glass-card reveal">
+        <h2 style="margin-bottom: 10px;">📦 Featured Projects</h2>
+        <p style="color: var(--text-dim); margin-bottom: 25px;">A collection of my recent mobile applications.</p>
+
+        <div class="app-grid">
+            <div class="app-card">
+                <div class="slider-container">
+                    <img src="prayer1.jpg" class="slide active">
+                    <img src="prayer2.jpg" class="slide">
+                    <img src="prayer3.jpg" class="slide">
+                </div>
+                <div class="app-info">
+                    <h3>Prayer App</h3>
+                    <a href="https://github.com/Salimtech353/Prayer/releases/download/v1.0.7/prayer_v1.0.7.apk" class="btn-download">
+                        Download APK
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="slider-container">
+                    <img src="jobs1.jpg" class="slide active">
+                    <img src="jobs2.jpg" class="slide">
+                    <img src="jobs3.jpg" class="slide">
+                </div>
+                <div class="app-info">
+                    <h3>JobsBD</h3>
+                    <a href="https://github.com/Salimbd71/JobsBD/releases/download/v1.0.2/jobsbd-v1.0.2.apk" class="btn-download">
+                        Download APK
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-card">
+                <div class="slider-container">
+                    <img src="tv1.jpg" class="slide active">
+                    <img src="tv2.jpg" class="slide">
+                    <img src="tv3.jpg" class="slide">
+                </div>
+                <div class="app-info">
+                    <h3>LiveTV 71</h3>
+                    <a href="https://github.com/Salimtech353/LiveTV71/releases/download/v1.0.2/livetv71_v1.0.2.apk" class="btn-download">
+                        Download APK
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <div class="glass-card reveal">
+            <h2 style="color: var(--primary);">Contact</h2>
+            <p style="margin: 10px 0;">📞 01737462871</p>
+            <p>✉️ salimbd.ga@gmail.com</p>
+        </div>
+        <div class="glass-card reveal">
+    <h2 style="color: var(--accent);">Connect</h2>
+
+    <div style="display: flex; gap: 15px; margin-top: 15px; flex-wrap: wrap;">
+
+        <a href="https://wa.me/8801737462871?text=Hello%20I%20want%20to%20contact%20you"
+   style="color: #fff; text-decoration: none; font-weight: bold;">
+   WhatsApp
+</a>
+
+        <a href="https://facebook.com/salim.naogaon"
+           style="color: #fff; text-decoration: none; font-weight: bold;">
+           Facebook
+        </a>
+
+        <a href="https://github.com/Salimtech353"
+           style="color: #fff; text-decoration: none; font-weight: bold;">
+           GitHub
+        </a>
+
+    </div>
+</div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Md. Salim Hossain • Crafted with Passion</p>
+</footer>
+
+<script>
+    // Intersection Observer for scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Refined Auto-Slider
+    const sliderContainers = document.querySelectorAll('.slider-container');
+
+    sliderContainers.forEach(container => {
+        let slides = container.querySelectorAll('.slide');
+        let current = 0;
+
+        setInterval(() => {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
