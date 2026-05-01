@@ -105,6 +105,16 @@
         transform: translateX(5px);
     }
 
+   .social-links li {
+    list-style: none;
+    margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.social-links li:hover {
+    transform: translateX(6px);
+}
+
     .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -163,7 +173,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     opacity: 0;
     transition: 0.8s;
 }
@@ -326,9 +336,15 @@
 
         <div class="card social">
             <h2>🌐 Social</h2>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">Instagram</a>
+        <ul class="social-links">
+		  <li>📱 <a href="tel:+8801737462871">01737462871</a></li>
+		  <li>✉️ <a href="mailto:salimbd.ga@gmail.com">salimbd.ga@gmail.com</a></li>
+		  <li>📘 <a href="https://www.facebook.com/salim.naogaon">Facebook</a></li>
+		  <li>▶️ <a href="https://www.youtube.com/@TechZone_71">YouTube</a></li>
+		  <li>📸 <a href="https://www.instagram.com/salim.naogaon">Instagram</a></li>
+		  <li>💼 <a href="https://www.linkedin.com/in/salimnaogaon">LinkedIn</a></li>
+		  <li>🌐 <a href="https://salimtech353.github.io/portfolio/">Website</a></li>
+        </ul>
         </div>
 
     </div>
